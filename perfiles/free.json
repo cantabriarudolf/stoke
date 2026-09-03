@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "$comment": "Perfil FREE: solo modelos free de Zen. Rate-limited y lentos; el plugin muestra aviso de privacidad. Regenerable con: node scripts/doctor.mjs --auto --perfil free",
+  "model": "opencode/mimo-v2.5-free",
+  "small_model": "opencode/nemotron-3-ultra-free",
+  "agent": {
+    "build": {
+      "model": "opencode/mimo-v2.5-free"
+    },
+    "plan": {
+      "model": "opencode/muse-spark-1.3-contributor-free"
+    },
+    "arquitecto": {
+      "model": "opencode/muse-spark-1.3-contributor-free"
+    },
+    "codificador": {
+      "model": "opencode/mimo-v2.5-free"
+    },
+    "lector": {
+      "model": "opencode/nemotron-3.5-lightning-free"
+    },
+    "revisor-fin": {
+      "model": "opencode/ling-3.0-flash-fin-free"
+    },
+    "revisor-codigo": {
+      "model": "opencode/muse-spark-1.3-contributor-free"
+    },
+    "documentador": {
+      "model": "opencode/mimo-v2.5-free"
+    },
+    "alivio": {
+      "model": "opencode/mimo-v2.5-free"
+    },
+    "fondos": {
+      "model": "opencode/mimo-v2.5-free"
+    }
+  }
+}

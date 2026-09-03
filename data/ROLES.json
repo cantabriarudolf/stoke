@@ -1,0 +1,105 @@
+{
+  "$comment": "STOKE: definicion de roles y candidatos de modelo. El doctor resuelve cada rol con el PRIMER candidato disponible cuyo pool incluya el perfil activo. 'exacto' = IDs verificados; 'patron' = regex sobre provider/model (sobrevive rotaciones de version). Capacidad minima es INFORMATIVA (requiere metadatos --verbose).",
+  "version": "1.0.0",
+  "perfiles": ["free", "hibrido", "max"],
+  "roles": {
+    "build": {
+      "$rol": "primary por defecto: orquestador de uso diario",
+      "candidatos": [
+        { "perfiles": ["hibrido", "max"], "exacto": ["opencode-go/glm-5.3-flash"], "patron": ["^opencode-go/glm-5\\.[0-9]+-flash$"] },
+        { "perfiles": ["max"], "exacto": ["opencode-go/glm-5.3"], "patron": ["^opencode-go/glm-5\\.[0-9]+$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/mimo-v2.5-free"], "patron": ["^opencode/mimo-v[0-9.]+-free$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/muse-spark-1.3-contributor-free"], "patron": ["^opencode/muse-spark-[0-9.]+.*-free$"] }
+      ]
+    },
+    "plan": {
+      "$rol": "primary de planificacion rapida",
+      "candidatos": [
+        { "perfiles": ["hibrido", "max"], "exacto": ["opencode-go/glm-5.3"], "patron": ["^opencode-go/glm-5\\.[0-9]+$"] },
+        { "perfiles": ["max"], "exacto": ["opencode-go/kimi-k3"], "patron": ["^opencode-go/kimi-k[0-9.]+$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/muse-spark-1.3-contributor-free"], "patron": ["^opencode/muse-spark-[0-9.]+.*-free$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/mimo-v2.5-free"], "patron": ["^opencode/mimo-v[0-9.]+-free$"] }
+      ]
+    },
+    "arquitecto": {
+      "$rol": "planificacion estrategica y arquitectura (primary, read-only)",
+      "capacidad_minima": { "contexto": 128000, "razonamiento": true },
+      "candidatos": [
+        { "perfiles": ["hibrido", "max"], "exacto": ["opencode-go/glm-5.3"], "patron": ["^opencode-go/glm-5\\.[0-9]+$"] },
+        { "perfiles": ["max"], "exacto": ["opencode-go/qwen3.8-max"], "patron": ["^opencode-go/qwen3\\.[0-9]+-max$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/muse-spark-1.3-contributor-free"], "patron": ["^opencode/muse-spark-1\\.[2-9].*free$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/mimo-v2.5-free"], "patron": ["^opencode/mimo-v[0-9.]+-free$"] }
+      ]
+    },
+    "codificador": {
+      "$rol": "ejecucion de codigo autónoma",
+      "capacidad_minima": { "contexto": 128000, "function_calling": true },
+      "candidatos": [
+        { "perfiles": ["hibrido", "max"], "exacto": ["opencode-go/kimi-k2.7-code"], "patron": ["^opencode-go/kimi.*code$"] },
+        { "perfiles": ["max"], "exacto": ["opencode-go/kimi-k3"], "patron": ["^opencode-go/kimi-k[0-9.]+$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/mimo-v2.5-free"], "patron": ["^opencode/mimo-v[0-9.]+-free$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/muse-spark-1.3-contributor-free"], "patron": ["^opencode/muse-spark-[0-9.]+.*-free$"] }
+      ]
+    },
+    "lector": {
+      "$rol": "lectura masiva de contexto (1M ctx, alta velocidad, sin juicio critico)",
+      "capacidad_minima": { "contexto": 200000 },
+      "candidatos": [
+        { "perfiles": ["free", "hibrido", "max"], "exacto": ["opencode/nemotron-3.5-lightning-free", "opencode/nemotron-3-ultra-free"], "patron": ["^opencode/nemotron-[0-9.]+.*-free$"] },
+        { "perfiles": ["hibrido", "max"], "exacto": ["opencode-go/longcat-2.0"], "patron": ["^opencode-go/longcat"] }
+      ]
+    },
+    "revisor-fin": {
+      "$rol": "revision de logica de negocio/dominio financiero del anfitrion (fine-tuning financiero)",
+      "candidatos": [
+        { "perfiles": ["free", "hibrido", "max"], "exacto": ["opencode/ling-3.0-flash-fin-free"], "patron": ["^opencode/ling-[0-9.]+-flash-fin.*free$", "^opencode/ling-[0-9.]+.*-fin.*$"] },
+        { "perfiles": ["hibrido", "max"], "exacto": ["opencode-go/glm-5.3"], "patron": ["^opencode-go/glm-5\\.[0-9]+$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/mimo-v2.5-free"], "patron": ["^opencode/mimo-v[0-9.]+-free$"] }
+      ]
+    },
+    "revisor-codigo": {
+      "$rol": "code review read-only",
+      "candidatos": [
+        { "perfiles": ["hibrido", "max"], "exacto": ["opencode-go/glm-5.3"], "patron": ["^opencode-go/glm-5\\.[0-9]+$"] },
+        { "perfiles": ["max"], "exacto": ["opencode-go/kimi-k3", "opencode-go/deepseek-v4-pro"], "patron": ["^opencode-go/(kimi-k|deepseek-v)[0-9.]"] },
+        { "perfiles": ["free"], "exacto": ["opencode/muse-spark-1.3-contributor-free"], "patron": ["^opencode/muse-spark-1\\.[2-9].*free$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/mimo-v2.5-free"], "patron": ["^opencode/mimo-v[0-9.]+-free$"] }
+      ]
+    },
+    "documentador": {
+      "$rol": "redaccion de documentacion/bitacoras",
+      "candidatos": [
+        { "perfiles": ["free", "hibrido", "max"], "exacto": ["opencode/mimo-v2.5-free"], "patron": ["^opencode/mimo-v[0-9.]+-free$"] },
+        { "perfiles": ["max"], "exacto": ["opencode-go/mimo-v2.5"], "patron": ["^opencode-go/mimo-v[0-9.]+$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/muse-spark-1.3-contributor-free"], "patron": ["^opencode/muse-spark-[0-9.]+.*-free$"] }
+      ]
+    },
+    "alivio": {
+      "$rol": "orientador del emprendedor: diagnostico de madurez, mapa de 7 zonas, prioridades y alivio de frentes no tecnicos (usa capacidades/emprendedor)",
+      "capacidad_minima": { "contexto": 128000, "razonamiento": true },
+      "candidatos": [
+        { "perfiles": ["free"], "exacto": ["opencode/mimo-v2.5-free"], "patron": ["^opencode/mimo-v[0-9.]+-free$"] },
+        { "perfiles": ["hibrido"], "exacto": ["opencode-go/glm-5.3-flash"], "patron": ["^opencode-go/glm-5\\.[0-9]+-flash$"] },
+        { "perfiles": ["max"], "exacto": ["opencode-go/glm-5.3"], "patron": ["^opencode-go/glm-5\\.[0-9]+$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/muse-spark-1.3-contributor-free"], "patron": ["^opencode/muse-spark-[0-9.]+.*-free$"] }
+      ]
+    },
+    "fondos": {
+      "$rol": "financiamiento: consulta fondos.gob.cl con el perfil estructurado del emprendimiento y responde compatibilidad de postulacion (usa capacidades/emprendedor/SKILL-fondos)",
+      "capacidad_minima": { "contexto": 128000, "razonamiento": true },
+      "candidatos": [
+        { "perfiles": ["free"], "exacto": ["opencode/mimo-v2.5-free"], "patron": ["^opencode/mimo-v[0-9.]+-free$"] },
+        { "perfiles": ["hibrido"], "exacto": ["opencode-go/glm-5.3-flash"], "patron": ["^opencode-go/glm-5\\.[0-9]+-flash$"] },
+        { "perfiles": ["max"], "exacto": ["opencode-go/glm-5.3"], "patron": ["^opencode-go/glm-5\\.[0-9]+$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/muse-spark-1.3-contributor-free"], "patron": ["^opencode/muse-spark-[0-9.]+.*-free$"] }
+      ]
+    },
+    "small_model": {
+      "$rol": "tareas livianas del sistema (titulos, compaction)",
+      "candidatos": [
+        { "perfiles": ["hibrido", "max"], "exacto": ["opencode-go/glm-5.3-flash"], "patron": ["^opencode-go/glm-5\\.[0-9]+-flash$"] },
+        { "perfiles": ["free"], "exacto": ["opencode/nemotron-3-ultra-free"], "patron": ["^opencode/nemotron-[0-9.]+.*-free$"] }
+      ]
+    }
+  }
+}

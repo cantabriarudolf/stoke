@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "$comment": "Perfil MAX: maxima calidad en todo lo critico; free solo donde no hay mejor (lector masivo). Regenerable con: node scripts/doctor.mjs --auto --perfil max",
+  "model": "opencode-go/glm-5.3",
+  "small_model": "opencode-go/glm-5.3-flash",
+  "agent": {
+    "build": { "model": "opencode-go/glm-5.3" },
+    "plan": { "model": "opencode-go/glm-5.3" },
+    "arquitecto": { "model": "opencode-go/glm-5.3" },
+    "codificador": { "model": "opencode-go/kimi-k2.7-code" },
+    "lector": { "model": "opencode/nemotron-3.5-lightning-free" },
+    "revisor-fin": { "model": "opencode-go/glm-5.3" },
+    "revisor-codigo": { "model": "opencode-go/kimi-k3" },
+    "documentador": { "model": "opencode-go/mimo-v2.5" }
+  }
+}

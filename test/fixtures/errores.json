@@ -1,0 +1,32 @@
+{
+  "$comment": "STOKE: patrones de clasificacion de errores de sesion. plugin/stoke-doctor.js hace matching por inclusion (case-insensitive). El doctor promueve propuestas aditivas agregando patrones aqui.",
+  "version": 1,
+  "model_no_encontrado": [
+    "model not found",
+    "model_not_found",
+    "does not exist",
+    "no endpoints available",
+    "invalid model",
+    "unknown model",
+    "not a valid model",
+    "no such model",
+    "model is not available"
+  ],
+  "cuota": [
+    "rate limit",
+    "rate_limit",
+    "429",
+    "too many requests",
+    "quota",
+    "limit exceeded",
+    "resource_exhausted"
+  ],
+  "auth": [
+    "unauthorized",
+    "401",
+    "invalid api key",
+    "invalid_api_key",
+    "authentication",
+    "no credentials"
+  ]
+}
