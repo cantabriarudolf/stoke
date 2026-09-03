@@ -32,7 +32,7 @@ Instalación en 30 segundos, con snapshot previo (nunca destruye sin vuelta atr�
 
 ```bash
 # 1. Obtener el kit
-git clone <URL-DE-STOKE> stoke
+git clone https://github.com/cantabriarudolf/stoke.git stoke
 
 # 2. Instalar en tu proyecto
 cd tu-proyecto
@@ -44,7 +44,7 @@ bash /ruta/stoke/start.sh free
 
 - **Proyecto en cero**: STOKE detecta greenfield y se convierte en tu base fundacional (crea tu `AGENTS.md` para que lo rellenes)
 - **Proyecto existente**: instala en modo *merge* — nunca sobrescribe lo que ya tienes; si ya tienes algo armado, tú decides qué incorporar
-- **Equipo de 8 roles**: cada agente con el modelo correcto para su tarea
+- **Equipo de 10 roles**: cada agente con el modelo correcto para su tarea
 
 | Rol | Agente | Para qué |
 |---|---|---|
