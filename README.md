@@ -1,7 +1,16 @@
+<p align="center">
+  <img src="img/band.svg" alt="" width="100%">
+</p>
+
 <h1 align="center">STOKE</h1>
 
 <p align="center">
   <img src="img/stokea.png" alt="STOKE — la herramienta de campo" width="260"/>
+</p>
+
+<p align="center">
+  <img alt="Licencia Apache-2.0" src="https://img.shields.io/badge/licencia-Apache--2.0-c0a062?labelColor=0a0a0b">
+  <img alt="Estado estable" src="https://img.shields.io/badge/estado-estable-c9ccd1?labelColor=0a0a0b">
 </p>
 
 <p align="center"><strong>Construir. Adaptar. Defender.</strong></p>
@@ -124,3 +133,14 @@ bash install.sh free . --capacidad emprendedor  # primera línea de defensa del 
 Este kit **mejora en cada proyecto donde vive**: las lecciones se acumulan en `LECCIONES.md`, cada snapshot de modelos queda en `INVENTARIO.md`, cada vida se registra en `GENEALOGIA.md` y cada agente muere dejando carta en `TESTAMENTO.md`. Cuando tu versión acumule aprendizajes: bump de versión, push, y comparte tu link — la próxima persona nace sabiendo lo que tú viviste.
 
 **Adoptante nuevo**: lee `MANIFIESTO.md` — reglas de decisión para tomar todo o parte, convivencia con tu config existente, y el formato de consulta si algo es genuinamente ambiguo.
+
+## Licencia
+
+**Apache-2.0** — permisiva: usá, modificá, distribuí y contribuí libremente, con atribución y
+concesión explícita de patentes. Ver [LICENSE](LICENSE).
+
+---
+
+<p align="center">
+  <sub><strong>motor · Gentle Shell</strong> · Apache-2.0</sub>
+</p>
